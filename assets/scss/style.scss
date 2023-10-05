@@ -271,6 +271,7 @@ body{
             font-weight: 700;
             line-height: normal;
             text-transform: uppercase;
+            gap: 10px;
         }
 
         h3{
@@ -283,20 +284,124 @@ body{
     }
 
     &--owl{
+        position: relative;
+        .slick-arrow{
+            position: absolute;
+            top: 45%;
+            border: none;
+            background: transparent;
+
+            &.prev-btn{
+                left: 10%;
+            }
+
+            &.next-btn{
+                right: 10%;
+            }
+        }
+
+        .slick-dots {
+            display: flex;
+            justify-content: center;
+            
+            margin: 0;
+            padding: 1rem 0;
+            
+            list-style-type: none;
+            
+                li {
+                    margin: 0 0.25rem;
+                }
+            
+                button {
+                    display: block;
+                    width: 0.7rem;
+                    height: 0.7rem;
+                    padding: 0;
+                    border: 1px solid var(--blue);
+                    border-radius: 100%;
+                    background-color: transparent;
+                    text-indent: -9999px;
+                }
+            
+                li.slick-active button {
+                    background-color: var(--green);
+                }
+            
+        }
+
         .slider {
             width: 100%;
-            margin: 100px auto;
+            margin: 2rem auto;
+            overflow: hidden;
+            position: relative;
+
+            &-item{
+                overflow: hidden;
+                // transform: scale(0.9);
+                min-height: 500px;
+                position: relative;
+
+                &::after{
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    inset: 0;
+                    z-index: 1;
+                    background: #000;
+                    background: #00000069;
+                    border-radius: 10px;
+                }
+
+                .heading-title{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    background: linear-gradient(180deg, rgba(77, 199, 78, 0.00) 0%, rgba(77, 199, 78, 0.70) 100%);
+                    min-height: 118.581px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2;
+
+                    h3{
+                        background: linear-gradient(180deg, #FFF 33.83%, rgba(255, 255, 255, 0.00) 80.36%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 48px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        text-transform: uppercase;
+                        text-align: center;
+                    }
+                }
+            }
           }
           .slick-list{
             padding: 0 !important;
+            margin-left: -25%;
+            margin-right: -25%;
           }
           .slick-slide {
-            margin: 10px 30px;
+            margin: 10px 10px;
+            transform: scale(0.8);
           }
           
           .slick-slide img {
             width: 100%;
-            transform: scale(0.9);
+            height: 100%;
+            object-fit: cover;
+            // transform: scale(0.8);
+            box-shadow: 0px 0px 20px 0px rgba(23, 50, 97, 0.20);
+            border-radius: 10px;
+            overflow: hidden;
+            position: absolute;
+            inset: 0;
           }
           
           .slick-prev:before,
@@ -304,12 +409,85 @@ body{
             color: black;
           }
           
-          .slick-dotted .slick-center{
+          .slick-center{
             // padding: 0 10rem
+            transform: scale(1);
+            // transform: scale(1.3);
+          }
+          .slick-center .slider-item{
+            box-shadow: 0px 0px 20px 0px rgba(23, 50, 97, 0.20);
+            border-radius: 10px;
+            overflow: hidden;
+
+            &::after{
+                background: transparent;
+            }
           }
           .slick-center img {
-            transform: scale(1.1);
-          
+            width: 100%;
+            height: 100%;
           }
     }
+}
+
+.traveland-service{
+    .row{
+        align-items: center;
+    }
+
+    .heading{
+        h3{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: space-between;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        // h2{
+        //     font-size: 42px;
+        //     font-style: normal;
+        //     font-weight: 700;
+        //     line-height: normal;
+        //     text-transform: uppercase;
+        //     background: var(--gra1, linear-gradient(90deg, #194399 0%, #44AC45 50.52%, #194399 100%));
+        //     background-clip: text;
+        //     -webkit-background-clip: text;
+        //     -webkit-text-fill-color: transparent;
+        // }
+    }
+
+    &--list{
+        display: flex;
+        flex-wrap: wrap;
+
+        &-item{
+            width: calc(100%/2 - 7.5px);
+            padding: 15px;
+
+            .title-head{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    }
+}
+
+img{
+    max-width: 100%;
+}
+
+.heading-title-main{
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    background: var(--gra1, linear-gradient(90deg, #194399 0%, #44AC45 50.52%, #194399 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
